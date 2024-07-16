@@ -1,0 +1,61 @@
+{{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
+{{ define "main" }}
+<div class="flex-l mt2 center color-link">
+    <div class="center mb6-m mb5">
+
+        {{ if eq .Params.layout "privacy"}}
+        <div class="center cf pv5 pv4-m ph5 ph3-ns mw8">
+            <div class="nested-copy-line-height lh-copy f5 f6-m privacy-page privacy-color-link">
+                {{ .Content }}
+            </div>
+        </div>
+
+        {{ else if eq .Params.layout "img-right" }}
+            {{ partial "img-right.html" . }}
+
+        {{ else if eq .Params.layout "little-icons" }}
+            {{ partial "little-icons.html" . }}
+
+        {{ else if eq .Params.layout "img-left-plus-right" }}
+            {{ partial "img-left-plus-right.html" . }}
+
+        {{ else if eq .Params.layout "img-left" }}
+            {{ partial "img-left.html" . }}
+
+        {{ else if eq .Params.layout "contacts-with-google-form" }}
+            {{ partial "contacts-with-google-form.html" . }}
+
+        {{ else if eq .Params.layout "content-center" }}
+        <div class="center cf pv5 ph5-m ph4 mw8 mw7-m">
+            <div class="tc f3-l f4 fw4 lh-title tl title-text-font" style="color:{{ $.Param "middle_title_color" | default "#181818" }};">
+                {{ .Content }}
+            </div>
+        </div>
+
+        {{ else }}
+        {{/* Default layout */}}
+        <div class="center cf pv5 ph5-m ph4 mw8 mw7-m">
+            <div class="title-text-font nested-copy-line-height lh-copy f4-l f5 ml4-m nested-links {{ $.Param "text_color" | default "#454545" }}">
+                {{ .Content }}
+            </div>
+        </div>
+        {{ end }}
+
+    </div>
+</div>
+
+<div class="final-message-font center tc f4 f5-ns fw4 ph5-ns lh-title" style="color:{{ $.Param "final_message_color" | default "#454545" }};">
+    {{ .Params.final_message }}
+</div>
+
+{{ if ne .Params.layout "contacts-with-google-form" }}
+    {{ if ne .Params.layout "content-center" }}
+        {{ if .Site.Params.footerContactButton }}
+            {{ partial "contact-us-btn.html" . }}
+        {{end}}
+    {{ else if eq .Params.layout "content-center" }}
+        {{ partial "to-main-page-btn.html" . }}
+    {{ end }}
+{{ end }}
+
+{{ end }}
