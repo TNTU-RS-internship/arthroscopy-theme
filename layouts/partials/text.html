@@ -1,0 +1,80 @@
+<div class="center mw9 mh4 ma3 flex flex-wrap items-start">
+    <div class="w-25 ph4 pv2 br-20 cus-shed sticky-sidebar">
+        <ul class="list pl0 ml0 f4">
+            {{ $currentPage := .Page }}
+            {{ $currentIdentifier := .Params.menu.main.identifier }}
+            {{ $currentParentIdentifier := .Params.menu.main.parent }}
+
+            {{ $allPages := .Site.Pages }}
+            {{ $currentParentPage := where $allPages "Params.menu.main.identifier" $currentParentIdentifier }}
+            {{ $children := where $allPages "Params.menu.main.parent" $currentIdentifier }}
+            {{ $siblingPages := where $allPages "Params.menu.main.parent" $currentParentIdentifier }}
+            {{ $currentURL := .Permalink }}
+
+            {{ if eq $currentParentIdentifier "disease" }}
+            <li class="mb2 flex items-center">
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+            </li>
+            {{ else }}
+            {{ if $currentParentPage }}
+            {{ with index $currentParentPage 0 }}
+            <li class="mb2 flex items-center">
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+
+            {{ if gt (len $children) 0 }}
+            {{ range $children }}
+            <li class="mb2 flex items-center">
+                <span class="dash {{ if eq .Permalink $currentURL }}red-underline{{ end }}">•</span>
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+            {{ else }}
+            {{ if gt (len $siblingPages) 0 }}
+            {{ range $siblingPages }}
+            <li class="mb2 flex items-center">
+                <span class="dash {{ if eq .Permalink $currentURL }}red-underline{{ end }}">•</span>
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+            {{ else }}
+            <li class="mb2">No pages available</li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+    <div class="text-img w-75 pl5 min-h-screen f4-5-l">
+        {{ .Content }}
+    </div>
+</div>
+
+<style>
+    .current-page {
+        color: red !important;
+        text-decoration: underline !important;
+    }
+    .red-underline {
+        color: red;
+    }
+    .sticky-sidebar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 8rem;
+    }
+    .main-grey-bg {
+        background-color: var(--main-grey);
+    }
+    .text-img img {
+        max-height: 420px;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 2rem auto;
+        object-fit: cover;
+    }
+</style>
+
+

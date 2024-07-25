@@ -1,9 +1,11 @@
 {{ define "main" }}
-{{ if eq .Params.layout "img-left-plus-right" }}
-{{partial "img-left-plus-right.html" .}}
+
+{{ if eq .Params.layout "left-and-right" }}
+{{partial "left-and-right" .}}
 {{ else }}
+
 {{/* Default layout */}}
-<article class="title-text-font cf ph3 ph5-l pv3 pv4-l f4-5 tc-l center measure-wide lh-copy {{ $.Param " text_color" | default "#181818" }}">
+<article class="title-text-font cf ph3 ph5-l pv3 pv4-l f4-5 tc-l center measure-wide lh-copy da {{ $.Param " text_color" | default "#181818" }}">
     {{ .Content }}
 </article>
 {{ end }}

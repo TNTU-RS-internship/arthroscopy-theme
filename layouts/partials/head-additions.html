@@ -2,13 +2,19 @@
 <script defer src="{{ "/js/navigation.js" | urlize | relURL }}"></script>
 <style>
     :root {
-        --site-color: {{ $.Param "site_color" | default "#202020" }};
+        --site-color: {{ $.Param "site_color" | default "#7B7F92" }};
+        --dark-blue: {{ $.Param "dark_blue" | default "#2f3243" }};
+        --main-blue: {{ $.Param "main_blue" | default "#42465B" }};
+        --light-blue: {{ $.Param "light_blue" | default "#7B7F92" }};
+        --main-grey: {{ $.Param "main_grey" | default "#C4C8CB" }};
+        --light-grey: {{ $.Param "light_grey" | default "#EAEBED" }};
+        --main-red: {{ $.Param "main_red" | default "#E12D23" }};
     }
     .image-header {
         position: fixed;
         top: 0;
         width: 100%;
-        background: url("{{ .Site.Params.header_image_line }}") left;
+        background-color: var(--light-grey);
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
         z-index: 97;
     }

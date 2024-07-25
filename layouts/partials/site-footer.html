@@ -1,18 +1,14 @@
-<footer class="center" id="footer">
+<footer class="center main-blue-bg white" id="footer">
 
-    {{/* Footer line */}}
-    <div class="pb4 ph3-ns w-70 w-80-ns center">
-        <div class="bb b--black-10"></div>
-    </div>
-
-    <div class="tc igra-sans" style="color: #2F2F2F">
+    <div class="pb4 ph3-ns w-70 w-80-ns center"></div>
+    <div class="tc igra-sans">
         <div class="f5 f6-ns fw4 pb2 ph3">
-            <a href="{{ .Site.Params.locationURL }}" target="_blank" class="underline-hover" style="color: #4158CF;">
+            <a href="{{ .Site.Params.locationURL }}" target="_blank" class="underline-hover white">
                 {{ .Site.Params.customFooterLine1 }}
             </a>
         </div>
         <div class="f5 f6-ns fw4 pb2 ph3">
-            <a href="{{ .Site.Params.locationURL }}" target="_blank" class="underline-hover" style="color: #4158CF;">
+            <a href="{{ .Site.Params.locationURL }}" target="_blank" class="underline-hover white">
                 {{ .Site.Params.customFooterLine2 }}
             </a>
         </div>
@@ -20,8 +16,8 @@
         <div class="f5 f6-ns fw4 no-underline pb2 ph3">{{ .Site.Params.customFooterLine4 }}</div>
     </div>
     <div class="flex items-center justify-between flex-column-reverse-m flex-column-reverse-ns ph3 ph3-ns w-70 w-80-ns center">
-        <div class="igra-sans tc f6 f7-ns fw4 no-underline black-70 dn dib pv4 pv3-m pv3-ns ph3 ph4-ns" style="color: #2F2F2F">
-            <a class="hover-black black-70" href="{{ .Site.Home.Permalink }}{{ .Site.Params.footerPrivacyUrl }}">
+        <div class="igra-sans tc f6 f7-ns fw4 no-underline dn dib pv4 pv3-m pv3-ns ph3 ph4-ns">
+            <a  href="{{ .Site.Home.Permalink }}{{ .Site.Params.footerPrivacyUrl }}">
                 {{ .Site.Params.footerPrivacy }}
             </a>
             Copyright &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }}, {{ now.Format "2006"}} All rights reserved.{{ end }}
@@ -30,4 +26,5 @@
             {{ partial "social-follow.html" . }}
         </div>
     </div>
+
 </footer>

@@ -40,18 +40,20 @@
   {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
 </head>
 
-<body style="background-color:{{ $.Param "body_background_color" | default "#fefefa" }};" class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
+<body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
 <div class="page-container">
   <button onclick="topFunction()" id="btnBackToTop" ></button>
   <div class="page-content">
     {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
-    <main class="">
+    <main>
       {{ block "main" . }}{{ end }}
     </main>
   </div>
   {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
 </div>
 {{ partial "consent.html" . }}
+<script type="text/javascript" src="/js/carousel.js"></script>
+<link rel="stylesheet" href="/css/carousel.css">
 </body>
 </html>
 

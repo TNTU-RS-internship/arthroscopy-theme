@@ -1,45 +1,102 @@
-/* Put your custom styles here and run `npm start` from the "src" directory on */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
-/*
-  Important info! The public directory that Hugo builds does not retain
-  the root's file structure. The files are rearranged and their location changes.
-  The location depends on how Hugo's static site generator generates
-  the public directory from the project's source code.
-  Hugo suggests that files like those of font and images should be kept
-  in a folder named "static" in project's root
-  When hugo builds th web page, all references
-  to static files start from the static directory
-  (look to stackbit.yaml, field: "staticDir: exampleSite/static").
-
-  Read here: https://gohugo.io/content-management/static-files/
-
-  This means that all links start with ...static/<your link>
-
-  url("/fonts/IgraSans.woff2"):
-  that`s correct because after build, link will be like: ...static/fonts/IgraSans.woff2
-*/
 
 @font-face {
-  font-family: "Igra Sans";
-  src: local("Igra Sans"), local("IgraSans"),
-  url("/fonts/IgraSans.woff2") format("woff2"),
-  url("/fonts/IgraSans.woff") format("woff");
-  font-weight: 400;
+  font-family: "Montserrat";
+  src: local("Montserrat-Regular"), local("Montserrat"),
+  url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal; /* Regular weight */
+  font-style: normal; /* Regular style */
 }
 
-:root{
-  --igra-sans: "Igra Sans", sans-serif;
-  --roboto: "Roboto", sans-serif;
-  --montserrat:"Montserrat", sans-serif;
-  --inter: "Inter", sans-serif;
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Bold"), local("Montserrat Bold"),
+  url("/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold; /* Bold weight */
+  font-style: normal; /* Regular style */
+}
+
+
+
+body, html {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, select, textarea {
+  font-family: "Montserrat", sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: "Montserrat", sans-serif;
+  color: var(--dark-blue);
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.logo-font,
+.header-title-font,
+.basic-text-font,
+.title-text-font,
+.final-message-font,
+.input-text-font,
+.nav-font,
+.roboto {
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-input {
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --montserrat: "Montserrat", sans-serif;
+  --inter: "Inter", sans-serif; /* Only if you still want to use Inter somewhere */
 }
 
 #TableOfContents ul li {
   margin-bottom: 1em;
 }
+
+.dark-blue {
+  color: var(--dark-blue);
+}
+
+.main-blue-bg {
+  background-color: var(--main-blue);
+}
+.main-grey-bg {
+  background-color: var(--main-grey);
+}
+
+.send-btn {
+  background: red !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  color: white !important;
+}
+
+.column-content li {
+  margin-bottom: 10px;
+}
+.column-content p {
+  margin-top: 2rem;
+}
+
+.header-cover {
+  height: 100vh; /* Full viewport height */
+  max-height: 420px; /* Maximum height constraint */
+  background-size: cover;
+  background-position: center;
+}
+
 .logo-font{
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -51,7 +108,7 @@
   font-weight: 800;
 }
 .igra-sans{
-  font-family: "Igra Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .basic-text-font{
   font-family: "Montserrat", sans-serif;
@@ -66,10 +123,10 @@
   font-weight: 700;
 }
 .input-text-font{
-  font-family: "Igra Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .nav-font{
-  font-family: "Igra Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 .obj-fit-cover{
@@ -108,7 +165,7 @@
   color: white;
 }
 button, input, optgroup, select, textarea {
-  font-family: "Igra Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #001b44;
   font-weight: 400;
   font-size: 100%;
@@ -166,7 +223,7 @@ p {
 
 #btnBackToTop {
   box-shadow: 0px 0px 10px 0px rgba(23, 22, 17, 0.15);
-  background-color: var(--site-color);
+  background-color: var(--main-blue);
   border: none;
   width: 50px;
   height: 50px;
@@ -178,18 +235,19 @@ p {
   display: none;
   z-index: 98;
   transition: 300ms ease-in-out;
+  margin-bottom: 25px;
 }
 #btnBackToTop::before {
   content: "";
   position: absolute;
   inset: 30%;
   transform: translateY(20%) rotate(-45deg);
-  border-top: 5px solid rgba(24, 24, 24, 0.8);
-  border-right: 5px solid rgba(24, 24, 24, 0.8);
+  border-top: 5px solid var(--light-grey);
+  border-right: 5px solid var(--light-grey);
 }
 #btnBackToTop:hover {
   cursor: pointer;
-  background: #f5e048;
+  background: #383b4e;
   transform: scale(0.99);
 }
 #btnBackToTop:active {
@@ -240,8 +298,8 @@ p {
 }
 
 .p-banner-lg {
-  padding-top: calc(8rem + 35px);
-  padding-bottom: 8rem;
+  padding-top: calc(8rem);
+  padding-bottom: 6rem;
 }
 
 .p-banner-sm {
@@ -436,16 +494,15 @@ textarea {
 }
 
 .nav-menu-list-item[aria-current="page"]{
-  text-decoration: underline solid var(--site-color) 0.12rem;
+  text-decoration: underline solid var(--main-red) 0.12rem;
   text-underline-offset: 0.4rem;
-  color: #fefefa;
+  color: var(--main-red);
 }
 
 .nav-menu-list-item-m[aria-current="page"]{
-  background-color: var(--site-color);
-  text-decoration: underline solid var(--site-color) 0.12rem;
+  background-color: var(--light-blue);
   text-underline-offset: 0.35rem;
-  color: #fefefa;
+  color: white !important;
 }
 
 @media all and (min-width: 1200px) {

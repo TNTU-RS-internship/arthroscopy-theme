@@ -1,20 +1,100 @@
-<section>
-  <div class="db pv4 pv0-ns ph0-ns mv3-ns ph3 ph0-l no-underline #181818">
-    <div class="flex flex-column-reverse-ns ">
-      <div class="blah w-100-ns w-60-l w-50-m {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3-l" "pl3-l" }}">
-        <h3 class="f3-l f4 fw4 lh-title tl title-text-font" style="color:{{ $.Param "middle_title_color" | default "#181818" }};">
-          {{ .Title }}
-        </h3>
-        <div class="f5 f6-m lh-copy nested-copy-line-height nested-links basic-text-font" style="color:{{ $.Param "subtitle_text_color" | default "#181818" }};">
-          {{ .Content }}
-        </div>
-      </div>
-      {{ if .Params.section_image }}
-        {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-        <div class="mv2-ns {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3-l" "pl3-l" }} w-100-ns w-60-l w-50-m">
-          {{ partial "image-srcset.html" . }}
-        </div>
+{{ with .Params }}
+<div class="section-image-container dark-blue">
+  <div class="section-text-half pa3 section-text-container">
+    <div class="section-text mw7 pa4 pa3-ns">
+      {{ if .title }}
+      <h2 class="section-title tc f3 f4-ns fw6 mb3">{{ .title }}</h2>
+      {{ end }}
+      <div class="f3 f4-ns">{{ .text | markdownify }}</div>
+      {{ if .button_href }}
+      <a href="{{ .button_href }}" class="button-link f5 fw6 pa3 bg-blue white br4 dib center mt3">{{ .button_text }}</a>
       {{ end }}
     </div>
   </div>
-</section>
+
+  {{ if .section_image }}
+  <div class="section-image-half" style="background-image: url('{{ .section_image }}'); min-height: 26rem">
+    <div class="gradient-overlay-r"></div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+
+<style>
+  .section-image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-image-half {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Ensure the gradient overlay is positioned correctly */
+  }
+
+  .gradient-overlay-r {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 100%);
+    pointer-events: none; /* Allows clicks to pass through */
+  }
+
+  .section-text-half {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-text {
+    background-color: #ffffff; /* White background */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for some depth */
+    max-height: 100%;
+    overflow-y: auto;
+    width: 90%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .section-title {
+    font-size: 2.25rem; /* Adjust size as needed */
+    font-weight: 800;
+    margin-bottom: 1rem; /* Space below the title */
+    text-align: center;
+  }
+
+  .button-link {
+    align-self: center !important; /* Center the button horizontally */
+    margin-top: 1.5rem !important;
+    padding: 0.75rem 1.5rem !important;
+    text-align: center !important;
+    background-color: var(--main-blue) !important; /* Button background color */
+    color: #ffffff !important; /* Button text color */
+    border-radius: 20px !important; /* Rounded corners */
+    text-decoration: none !important; /* Remove underline */
+    font-weight: bold !important;
+    transition: background-color 0.3s !important;
+  }
+
+  .button-link:hover {
+    background-color: var(--dark-blue); /* Darken on hover */
+  }
+
+  @media (max-width: 768px) {
+    .section-image-half{
+      display: none;
+    }
+    .section-text-half {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
