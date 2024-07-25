@@ -1,24 +1,18 @@
-<div class="center cf pt5 pb4 ph4-l pa4-m pa3-ns mw8">
-    <div class="title-text-font nested-copy-line-height lh-copy f4-l f5 {{ $.Param "text_color" | default "#181818" }}">
-    {{ .Content }}
-    </div>
-</div>
-
-{{ $folder_left := .Params.sections_folder_left }}
+{{ $folder_left := .Params.sections_folder }}
 {{ $mySections_left := slice $folder_left }}
 {{ $sections_left := where .Site.RegularPages "Section" "in" $mySections_left }}
 {{ $sections_count_left := len $sections_left }}
 
 {{ if ge $sections_count_left 1 }}
-<div class="pv3 ph4 pa4-l ph3-ns pv0-ns w-100 mw8-5 center">
+<div>
     {{ if .Params.section_title_one }}
-        <h2 class="lh-copy f3-l f4 mt0 mb4" style="color:{{ $.Param "middle_title_color" | default "#181818" }};" >
+        <h2 class="lh-copy f3-l f4 mt0 mb4 dark-blue">
             {{ .Params.section_title_one }}
         </h2>
     {{ end }}
-    <div class="w-100 center bb b--black-10">
+    <div>
         {{ range $sections_left }}
-        <div class="relative w-100 bt b--black-10">
+        <div>
             {{ .Render "section-image-left" }}
         </div>
         {{ end }}
@@ -26,24 +20,46 @@
 </div>
 {{ end }}
 
-{{ $folder_right := .Params.sections_folder_right }}
+{{ $folder_right := .Params.sections_folder_right_first }}
 {{ $mySections_right := slice $folder_right }}
 {{ $sections_right := where .Site.RegularPages "Section" "in" $mySections_right }}
 {{ $sections_count_right := len $sections_right }}
 
 {{ if ge $sections_count_right 1 }}
-<div class="pa3 pa4-l ph4-m w-100 ph3-ns pv0-ns mw8-5 center">
+<div class="pt3 ph3 ph4-l pt4-l ph4-m w-100 ph3-ns pv0-ns mw8-5 center">
     {{ if .Params.section_title_two }}
-    <div class="lh-copy f4 ph0-ns" style="color:{{ $.Param "middle_title_color" | default "#181818" }};" >
+    <div class="lh-copy f4 ph0-ns dark-blue">
         <h2 class="lh-copy f3-l f4" >
             {{ .Params.section_title_two }}
         </h2>
     </div>
     {{ end }}
-    <div class="w-100 center bb b--black-10">
+    <div>
         {{ range $sections_right }}
-        <div class="relative w-100">
+        <div>
             {{ .Render "section-image-right" }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
+{{ $folder_left := .Params.sections_folder_left_second }}
+{{ $mySections_left := slice $folder_left }}
+{{ $sections_left := where .Site.RegularPages "Section" "in" $mySections_left }}
+{{ $sections_count_left := len $sections_left }}
+
+{{ if ge $sections_count_left 1 }}
+<div>
+    {{ if .Params.section_title_one }}
+    <h2 class="lh-copy f3-l f4 mt0 mb4 dark-blue">
+        {{ .Params.section_title_one }}
+    </h2>
+    {{ end }}
+    <div>
+        {{ range $sections_left }}
+        <div>
+            {{ .Render "section-image-left" }}
         </div>
         {{ end }}
     </div>

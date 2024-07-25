@@ -1,0 +1,23 @@
+{{ with .Params }}
+<div class="pa4 pa1-ns pa mw9 center dark-blue">
+    {{ if .title }}
+    <h2 class="f1 f2-ns lh-copy mb3 tc underline">{{ .title }}</h2>
+    {{ end }}
+    <div class="flex flex-wrap f4">
+        <div class="w-50 w-100-ns pa2 ph4">
+            <div>
+                {{ if .column_left }}
+                {{ .column_left | markdownify }}
+                {{ end }}
+            </div>
+        </div>
+        <div class="w-50 w-100-ns pa2 ph4">
+            <div>
+                {{ if .column_right }}
+                {{ .column_right | markdownify }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -3,16 +3,15 @@
     <div class="flex items-center f5 f4-l fw4 pl4-l white">
     <a href="{{ .Site.Home.RelPermalink }}">
       {{ with .Site.Params.siteLogo }}
-        <img src="{{ relURL . }}" class="w100 mw4-5-l v-mid site-logo" alt="{{ $.Site.Title }}" >
+        <img src="{{ relURL . }}" class="mw4-5-l v-mid site-logo" alt="{{ $.Site.Title }}" >
       {{ end }}
     </a>
       {{ if .Site.Params.showTitleNearLogo}}
-      <a href="{{ .Site.Home.RelPermalink }}" class="f3-l f0-m f0-ns fw2 pl3 hover-white no-underline white-90 text-bold">
+      <a href="{{ .Site.Home.RelPermalink }}" class="f3-l f0-m f0-ns fw2 pl3 no-underline dark-blue text-bold">
           {{ .Site.Title }}
       </a>
       {{ end}}
     </div>
-
 
     <div class="nav-font flex flex-row-reverse-ns items-center">
       {{ if .Site.Menus.main }}
@@ -23,7 +22,7 @@
 
         {{ if .HasChildren }}
         <li class="dropdown list f5 f4-l fw4 dib pl4-l pl2 menu-item-has-children {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
-          <a class="nav-menu-list-item hover-white no-underline white-90"  href="{{ .URL }}">
+          <a class="nav-menu-list-item no-underline dark-blue"  href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
             <span>{{ .PageRef }}</span>
@@ -39,7 +38,7 @@
         </li>
         {{ else }}
         <li class="list f5 f4-l fw4 dib pl4-l pl2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
-          <a  class="nav-menu-list-item hover-white no-underline white-90" href="{{ .URL }}">
+          <a  class="nav-menu-list-item no-underline dark-blue" href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
             <span>{{ .PageRef }}</span>

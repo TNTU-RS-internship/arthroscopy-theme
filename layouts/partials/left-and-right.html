@@ -1,0 +1,35 @@
+{{ $folder := .Params.sections_folder }}
+{{ $mySections := slice $folder }}
+{{ $sections := where .Site.RegularPages "Section" "in" $mySections }}
+{{ $sections_count := len $sections }}
+
+{{ if ge $sections_count 1 }}
+<div>
+    {{ range $sections }}
+    {{ if .Params.img_left_text_right }}
+    <div>
+        {{ .Render "section-image-left" }}
+    </div>
+
+    {{ else if .Params.text_left_img_right }}
+    <div>
+        {{ .Render "section-image-right" }}
+    </div>
+
+    {{ else if .Params.text_left_text_right }}
+    <div>
+        {{ .Render "text-left-right" }}
+    </div>
+
+    {{ else if .Params.content_center }}
+    <div>
+        <div class="center cf pv5 ph5-m ph4 mw8 mw7-m">
+                <div class="section-title tc f3 f4-ns fw6 mb3 dark-blue">{{ .Title }}</div>
+                {{ .Content }}
+        </div>
+    </div>
+
+    {{ end }}
+    {{ end }}
+</div>
+{{ end }}

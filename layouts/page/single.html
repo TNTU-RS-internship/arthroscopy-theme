@@ -1,14 +1,10 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
-<div class="flex-l mt2 center color-link">
-    <div class="center mb6-m mb5">
+<div class="center color-link">
+    <div class="center">
 
         {{ if eq .Params.layout "privacy"}}
-        <div class="center cf pv5 pv4-m ph5 ph3-ns mw8">
-            <div class="nested-copy-line-height lh-copy f5 f6-m privacy-page privacy-color-link">
-                {{ .Content }}
-            </div>
-        </div>
+            {{ partial "text.html" . }}
 
         {{ else if eq .Params.layout "img-right" }}
             {{ partial "img-right.html" . }}
@@ -16,8 +12,8 @@
         {{ else if eq .Params.layout "little-icons" }}
             {{ partial "little-icons.html" . }}
 
-        {{ else if eq .Params.layout "img-left-plus-right" }}
-            {{ partial "img-left-plus-right.html" . }}
+        {{ else if eq .Params.layout "left-and-right" }}
+            {{ partial "left-and-right" . }}
 
         {{ else if eq .Params.layout "img-left" }}
             {{ partial "img-left.html" . }}
@@ -42,10 +38,6 @@
         {{ end }}
 
     </div>
-</div>
-
-<div class="final-message-font center tc f4 f5-ns fw4 ph5-ns lh-title" style="color:{{ $.Param "final_message_color" | default "#454545" }};">
-    {{ .Params.final_message }}
 </div>
 
 {{ if ne .Params.layout "contacts-with-google-form" }}

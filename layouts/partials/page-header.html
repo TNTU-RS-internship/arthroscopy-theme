@@ -2,38 +2,44 @@
 
 {{/* header for desktop and tablet */}}
 <div id="menu-desktop">
-{{ if $featured_image }}
+  {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  <header class="cover bg-center" style="background-image: url('{{ $featured_image }}');">
-    <div class="bg-black-30">
-      {{ partial "site-navigation.html" . }}
-        {{ if not .Params.omit_header_text }}
-        <div class="tc p-banner-lg ph3 ph4-ns w-70 w-100-ns center">
-          <h1 class="header-title-font f2 f1-l f3-ns white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
-          {{ with .Params.description  }}
-            <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
-              {{ . }}
-            </h2>
-          {{ end }}
-        </div>
-        {{ else }}
-        <div class="tc p-banner-sm ph3 ph4-ns w-70 w-100-ns center">
-          <h1 class="header-title-font f2 f1-l f3-ns white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
-        </div>
+  <header class="cover bg-center main-grey-bg" style="background-image: url('{{ $featured_image }}'); z-index: 1;">
+    <div class="{{ .Site.Params.cover_dimming_class }}">
+      {{ partial "site-navigation.html" .}}
+      <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
+        <h1 class="header-title-font f-5 f1-m dark-blue lh-title">
+          {{ .Title | default .Site.Title }}
+        </h1>
+        {{ with .Params.description }}
+        <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+          {{ . }}
+        </h2>
         {{ end }}
+      </div>
     </div>
   </header>
-{{ else }}
+  {{ else }}
   <header>
-    <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
-      {{ partial "site-navigation.html" . }}
+    <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
+    {{ partial "site-navigation.html" . }}
+    <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
+      <h1 class="header-title-font f-5 f1-m dark-blue lh-title">
+        {{ .Title | default .Site.Title }}
+      </h1>
+      {{ with .Params.description }}
+      <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+        {{ . }}
+      </h2>
+      {{ end }}
     </div>
-  </header>
+</div>
+</header>
 {{ end }}
 </div>
 
 {{/* header with mobile menu */}}
-<div id="menu-mobile">
+<div id="menu-mobile" class="">
   {{ partial "site-navigation-mobile.html" .}}
 
   <div class="sticky-header" id="small-menu">
@@ -67,29 +73,34 @@
 
   {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  <header class="cover bg-center" style="background-image: url('{{ $featured_image }}');">
-    <div class="bg-black-30">
-      {{ if not .Params.omit_header_text }}
-      <div class="tc p-banner-lg p-banner-lg-ns ph3 ph4-ns w-70 w-100-ns center">
-        <h1 class="header-title-font f2 f1-l f3-ns white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
-        {{ with .Params.description  }}
-        <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+  <header class="cover bg-center relative" style="background-image: url('{{ $featured_image }}');z-index:1;">
+    <div class="{{ .Site.Params.cover_dimming_class }}">
+      <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
+        <h1 class="header-title-font f-5 f1-m dark-blue lh-title">
+          {{ .Title | default .Site.Title }}
+        </h1>
+        {{ with .Params.description }}
+        <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
           {{ . }}
         </h2>
         {{ end }}
       </div>
-      {{ else }}
-      <div class="tc p-banner-sm p-banner-sm-ns ph3 ph4-ns w-70 w-100-ns center">
-        <h1 class="header-title-font f2 f1-l f3-ns white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
-      </div>
-      {{ end }}
     </div>
   </header>
   {{ else }}
-  <header>
+  <header class="relative" style="z-index:1;">
     <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
-    {{ partial "site-navigation-mobile.html" . }}
+    <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
+      <h1 class="header-title-font f-5 f1-m dark-blue lh-title">
+        {{ .Title | default .Site.Title }}
+      </h1>
+      {{ with .Params.description }}
+      <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+        {{ . }}
+      </h2>
+      {{ end }}
     </div>
-  </header>
-  {{ end }}
+</div>
+</header>
+{{ end }}
 </div>
