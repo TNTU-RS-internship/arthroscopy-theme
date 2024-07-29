@@ -8,17 +8,17 @@
         <div class="flex flex-auto flex-column-ns">
             <div class="f4 f5-ns pa3 pl0-ns pt3-ns w-100-ns w-50 center mw-100 br-m br-l bb-ns">
                 {{ with .Params.column_left_title }}
-                <div class="tc f2 f3-ns fw6 mb3 dark-blue">{{ . | markdownify }}</div>
+                <h2 class="tc f2 f3-ns fw6 mb3 dark-blue">{{ . | markdownify }}</h2>
                 {{ end }}
                 {{ with .Params.column_left }}
-                <div class="column-content lh-copy">{{ . | markdownify }}</div>
+                <div class="column-content lh-copy f4-5 f5-ns">{{ . | markdownify }}</div>
                 {{ end }}
             </div>
 
             {{ if ge $form_count 1 }}
             <div class="f4 f5-ns pa3 pl0-ns pt3-ns w-100-ns w-50 center mw-100">
                 {{ with .Params.column_right_title }}
-                <div class="tc f2 f3-ns fw6 mb3 dark-blue">{{ . | markdownify }}</div>
+                <h2 class="tc f2 f3-ns fw6 mb3 dark-blue">{{ . | markdownify }}</h2>
                 {{ end }}
 
                 <script>let submitted=false;</script>

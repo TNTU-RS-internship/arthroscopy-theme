@@ -1,13 +1,13 @@
 {{ with .Params }}
 <div class="section-image-container dark-blue">
-  <div class="section-text-half pa3 section-text-container">
-    <div class="section-text mw7 pa4 pa3-ns">
+  <div class="section-text-half ph4 pv5 section-text-container">
+    <div class="section-text mw7 pa5 pa3-ns">
       {{ if .title }}
-      <h2 class="section-title tc f3 f4-ns fw6 mb3">{{ .title }}</h2>
+      <h2 class="section-title tc f2 f4-ns fw6 mb3">{{ .title }}</h2>
       {{ end }}
-      <div class="f3 f4-ns">{{ .text | markdownify }}</div>
+      <div class="f4-5">{{ .text | markdownify }}</div>
       {{ if .button_href }}
-      <a href="{{ .button_href }}" class="button-link f5 fw6 pa3 bg-blue white br4 dib center mt3">{{ .button_text }}</a>
+      <a href="{{ .button_href }}" class="button-link f4-5 fw6 pa3 bg-blue white br4 dib center mt3">{{ .button_text }}</a>
       {{ end }}
     </div>
   </div>

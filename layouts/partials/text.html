@@ -1,6 +1,6 @@
-<div class="center mw9 mh4 ma3 flex flex-wrap items-start">
+<div class="center mw9 ma5 flex flex-wrap items-start">
     <div class="w-25 ph4 pv2 br-20 cus-shed sticky-sidebar">
-        <ul class="list pl0 ml0 f4">
+        <ul class="list pl0 ml0 f4-5">
             {{ $currentPage := .Page }}
             {{ $currentIdentifier := .Params.menu.main.identifier }}
             {{ $currentParentIdentifier := .Params.menu.main.parent }}
@@ -46,7 +46,7 @@
             {{ end }}
         </ul>
     </div>
-    <div class="text-img w-75 pl5 min-h-screen f4-5-l">
+    <div class="text-img w-75 pl5 min-h-screen f4-5">
         {{ .Content }}
     </div>
 </div>
@@ -64,8 +64,8 @@
         position: sticky;
         top: 8rem;
     }
-    .main-grey-bg {
-        background-color: var(--main-grey);
+    .light-blue-bg {
+        background-color: var(--light-blue);
     }
     .text-img img {
         max-height: 420px;
@@ -74,6 +74,9 @@
         display: block;
         margin: 2rem auto;
         object-fit: cover;
+    }
+    .text-img ul {
+        margin-top: 0;
     }
 </style>
 
