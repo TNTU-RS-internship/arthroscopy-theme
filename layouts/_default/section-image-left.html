@@ -11,7 +11,7 @@
       {{ if .title }}
       <h2 class="section-title tc f2 f4-ns fw6 mb3">{{ .title }}</h2>
       {{ end }}
-      <div class="f4-5">{{ .text | markdownify }}</div>
+      <p class="f4-5">{{ .text | markdownify }}</p>
       {{ if .button_href }}
       <a href="{{ .button_href }}" class="button-link f4-5 fw6 pa3 bg-blue white br4 dib center mt3">{{ .button_text }}</a>
       {{ end }}
