@@ -4,11 +4,13 @@
 <div id="menu-desktop">
   {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  <header class="cover bg-center main-grey-bg menu-desktop-s" style="background-image: url('{{ $featured_image }}'); z-index: 1;">
-    <div class="{{ .Site.Params.cover_dimming_class }}">
+  {{ $isDisease := strings.HasSuffix .Permalink "/disease/" }}
+  {{ $containsDisease := strings.Contains .Permalink "/disease/" }}
+  <header class="cover bg-center main-grey-bg {{ if or $isDisease (not $containsDisease) }}menu-desktop-s{{ end }}" style="background-image: url('{{ $featured_image }}'); z-index: 1;">
+  <div class="{{ .Site.Params.cover_dimming_class }}">
       {{ partial "site-navigation.html" .}}
       <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-        <h1 class="header-title-font f1 dark-blue lh-title">
+        <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
           {{ .Title | default .Site.Title }}
         </h1>
         {{ with .Params.description }}
@@ -24,7 +26,7 @@
     <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
     {{ partial "site-navigation.html" . }}
     <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-      <h1 class="header-title-font f1 dark-blue lh-title">
+      <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
         {{ .Title | default .Site.Title }}
       </h1>
       {{ with .Params.description }}
@@ -73,10 +75,12 @@
 
   {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  <header class="cover bg-center relative" style="background-image: url('{{ $featured_image }}');z-index:1;">
+  {{ $isDisease := strings.HasSuffix .Permalink "/disease/" }}
+  {{ $containsDisease := strings.Contains .Permalink "/disease/" }}
+  <header class="cover bg-center main-grey-bg {{ if or $isDisease (not $containsDisease) }}menu-desktop-s{{ end }}" style="background-image: url('{{ $featured_image }}'); z-index: 1;">
     <div class="{{ .Site.Params.cover_dimming_class }}">
       <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-        <h1 class="header-title-font f1 dark-blue lh-title">
+        <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
           {{ .Title | default .Site.Title }}
         </h1>
         {{ with .Params.description }}
@@ -91,7 +95,7 @@
   <header class="relative" style="z-index:1;">
     <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
     <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-      <h1 class="header-title-font f1 dark-blue lh-title">
+      <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
         {{ .Title | default .Site.Title }}
       </h1>
       {{ with .Params.description }}
