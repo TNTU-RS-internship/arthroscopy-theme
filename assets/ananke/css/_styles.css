@@ -509,7 +509,7 @@ textarea {
 .nav-menu-list-item-m[aria-current="page"]{
   background-color: var(--light-blue);
   text-underline-offset: 0.35rem;
-  color: white !important;
+  font-weight: bold;
 }
 
 .btn-more {
