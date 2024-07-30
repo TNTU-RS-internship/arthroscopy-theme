@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, select, textarea {
 ul {line-height: 1.5rem !important;}
 p {line-height: 2rem !important;}
 h2 {margin: 0 0 0.5rem;}
-.menu-desktop-s {height: 420px;}
+.menu-desktop-s {height: 600px;background-position: 35%;}
 
 button,
 input,
@@ -496,6 +496,10 @@ textarea {
   max-height: 30rem;
 }
 
+.max-h--100{
+  max-height: 100%;
+}
+
 .nav-menu-list-item[aria-current="page"]{
   text-decoration: underline solid var(--main-red) 0.12rem;
   text-underline-offset: 0.4rem;
@@ -506,6 +510,30 @@ textarea {
   background-color: var(--light-blue);
   text-underline-offset: 0.35rem;
   color: white !important;
+}
+
+.btn-more {
+  align-self: center;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  color: #fff !important;
+  font-weight: bold;
+  background-color: var(--main-blue) !important;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s !important;
+}
+
+.btn-more:hover, .btn-more:active, .btn-more:focus {
+  background-color: var(--dark-blue) !important;
+  opacity: 1 !important;
+}
+
+@media all and (max-width: 1200px) {
+  .menu-desktop-s {
+    background-position: 100%;
+  }
 }
 
 @media all and (min-width: 1200px) {

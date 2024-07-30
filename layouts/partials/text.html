@@ -1,5 +1,5 @@
-<div class="center mw9 ma5 flex flex-wrap items-start">
-    <div class="w-25 ph4 pv2 br-20 cus-shed sticky-sidebar">
+<div class="center mw9 ma5 mv3-ns flex flex-wrap items-start">
+    <div class="sticky-sidebar w-25 ph4 pv2 br-20 cus-shed">
         <ul class="list pl0 ml0 f4-5">
             {{ $currentPage := .Page }}
             {{ $currentIdentifier := .Params.menu.main.identifier }}
@@ -36,7 +36,7 @@
             {{ if gt (len $siblingPages) 0 }}
             {{ range $siblingPages }}
             <li class="mb2 flex items-center">
-                <span class="dash {{ if eq .Permalink $currentURL }}red-underline{{ end }}">•</span>
+                <span class="dash {{ if eq .Permalink $currentURL }}red{{ end }}">•</span>
                 <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
             </li>
             {{ end }}
@@ -46,7 +46,7 @@
             {{ end }}
         </ul>
     </div>
-    <div class="text-img w-75 pl5 min-h-screen f4-5">
+    <div class="text-img w-75 ph4 min-h-screen f4-5">
         {{ .Content }}
     </div>
 </div>
@@ -56,17 +56,13 @@
         color: red !important;
         text-decoration: underline !important;
     }
-    .red-underline {
-        color: red;
-    }
+
     .sticky-sidebar {
         position: -webkit-sticky;
         position: sticky;
         top: 8rem;
     }
-    .light-blue-bg {
-        background-color: var(--light-blue);
-    }
+
     .text-img img {
         max-height: 420px;
         width: auto;
@@ -77,6 +73,19 @@
     }
     .text-img ul {
         margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+        .sticky-sidebar {
+            position: static;
+            top: auto;
+            width: 100%;
+            margin: 1rem;
+        }
+        .text-img {
+            width: 100%;
+            padding: 1rem;
+        }
     }
 </style>
 

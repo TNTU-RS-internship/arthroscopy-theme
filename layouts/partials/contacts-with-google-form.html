@@ -3,12 +3,12 @@
 {{ $form := where .Site.RegularPages "Section" "in" $mySections }}
 {{ $form_count := len $form }}
 
-<article class="ma4 pa4 pa3-m mw8 mw8-m center bg-white br-20 mh3-ns cus-shed">
+<article class="ma4 mh3-ns mh3-m mw8 mw8-m pa4 center bg-white br-20 cus-shed">
     <div class="db no-underline dark-gray">
         <div class="flex flex-auto flex-column-ns">
-            <div class="f4 f5-ns pa3 pl0-ns pt3-ns w-100-ns w-50 center mw-100 br-m br-l bb-ns">
+            <div class="f4 f5-ns pr0-ns pr4 w-50 w-100-ns center br-m br-l bb-ns">
                 {{ with .Params.column_left_title }}
-                <h2 class="tc f2 f3-ns fw6 mb3 dark-blue">{{ . | markdownify }}</h2>
+                <h2 class="tc f2 f3-ns fw8 mb3 dark-blue">{{ . | markdownify }}</h2>
                 {{ end }}
                 {{ with .Params.column_left }}
                 <div class="column-content lh-copy f4-5 f5-ns">{{ . | markdownify }}</div>
@@ -16,9 +16,9 @@
             </div>
 
             {{ if ge $form_count 1 }}
-            <div class="f4 f5-ns pa3 pl0-ns pt3-ns w-100-ns w-50 center mw-100">
+            <div class="f4 f5-ns pt4-ns pl0-ns pl3 w-100-ns w-50 mw-100 center">
                 {{ with .Params.column_right_title }}
-                <h2 class="tc f2 f3-ns fw6 mb3 dark-blue">{{ . | markdownify }}</h2>
+                <h2 class="tc f2 f3-ns fw8 mb3 dark-blue">{{ . | markdownify }}</h2>
                 {{ end }}
 
                 <script>let submitted=false;</script>
