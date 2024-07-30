@@ -13,31 +13,33 @@
 
             {{ if eq $currentParentIdentifier "disease" }}
             <li class="mb2 flex items-center">
-                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}" aria-current="{{ if eq .Permalink $currentURL }}page{{ end }}">{{ .Title }}</a>
             </li>
             {{ else }}
             {{ if $currentParentPage }}
             {{ with index $currentParentPage 0 }}
             <li class="mb2 flex items-center">
-                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}" aria-current="{{ if eq .Permalink $currentURL }}page{{ end }}">{{ .Title }}</a>
             </li>
             {{ end }}
             {{ end }}
             {{ end }}
 
             {{ if gt (len $children) 0 }}
-            {{ range $children }}
+            {{ $sortedChildren := sort $children "Params.menu.main.weight" }}
+            {{ range $sortedChildren }}
             <li class="mb2 flex items-center">
                 <span class="dash {{ if eq .Permalink $currentURL }}red-underline{{ end }}">•</span>
-                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}" aria-current="{{ if eq .Permalink $currentURL }}page{{ end }}">{{ .Params.menu.main.name }}</a>
             </li>
             {{ end }}
             {{ else }}
             {{ if gt (len $siblingPages) 0 }}
-            {{ range $siblingPages }}
+            {{ $sortedSiblings := sort $siblingPages "Params.menu.main.weight" }}
+            {{ range $sortedSiblings }}
             <li class="mb2 flex items-center">
                 <span class="dash {{ if eq .Permalink $currentURL }}red{{ end }}">•</span>
-                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}">{{ .Title }}</a>
+                <a href="{{ .Permalink }}" class="link blue hover-dark-blue ml2 {{ if eq .Permalink $currentURL }}current-page{{ end }}" aria-current="{{ if eq .Permalink $currentURL }}page{{ end }}">{{ .Params.menu.main.name }}</a>
             </li>
             {{ end }}
             {{ else }}
@@ -71,6 +73,7 @@
         margin: 2rem auto;
         object-fit: cover;
     }
+
     .text-img ul {
         margin-top: 0;
     }
@@ -88,5 +91,3 @@
         }
     }
 </style>
-
-
