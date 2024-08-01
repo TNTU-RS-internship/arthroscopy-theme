@@ -29,7 +29,7 @@
  "name": "gohugo-theme-ananke",
  "repository": {
   "type": "git",
-  "url": "git+https://github.com/TNTU-RS-internship/arthroscopy-theme.git"
+  "url": "git+https://github.com/vrokyta/arthroscopy-theme.git"
  },
  "version": "2.7.0"
 }

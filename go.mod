@@ -1,3 +1,3 @@
-module github.com/TNTU-RS-internship/arthroscopy-theme
+module github.com/vrokyta/arthroscopy-theme
 
 go 1.14
