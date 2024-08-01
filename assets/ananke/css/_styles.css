@@ -180,6 +180,10 @@ button, input, optgroup, select, textarea {
   padding-top: .75rem;
   padding-bottom: .75rem
 }
+.pv5-6 {
+  padding-top: 6rem;
+  padding-bottom: 6rem
+}
 
 .lh-copy blockquote {
   display: block;

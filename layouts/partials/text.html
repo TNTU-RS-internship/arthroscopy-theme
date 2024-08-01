@@ -48,14 +48,14 @@
             {{ end }}
         </ul>
     </div>
-    <div class="text-img w-75 ph4 min-h-screen f4-5">
+    <div class="text-img w-75 pl5 min-h-screen f4-5">
         {{ .Content }}
     </div>
 </div>
 
 <style>
     .current-page {
-        color: red !important;
+        color: var(--main-red) !important;
         text-decoration: underline !important;
     }
 
@@ -73,10 +73,12 @@
         margin: 2rem auto;
         object-fit: cover;
     }
-
-    .text-img ul {
-        margin-top: 0;
+    .text-img a {
+        color: var(--main-red);
+        transition: linear 0.3s;
     }
+    .text-img a:hover {color: #ac0000;}
+    .text-img ul {margin-top: 0;}
 
     @media (max-width: 768px) {
         .sticky-sidebar {
