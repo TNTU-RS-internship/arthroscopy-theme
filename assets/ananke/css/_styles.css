@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, select, textarea {
 ul {line-height: 1.5rem !important;}
 p {line-height: 2rem !important;}
 h2 {margin: 0 0 0.5rem;}
-.menu-desktop-s {height: 600px;background-position: 35%;}
+.menu-desktop-s {height: 600px; background-position: 40%;}
 
 button,
 input,

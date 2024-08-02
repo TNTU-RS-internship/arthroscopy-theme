@@ -10,11 +10,11 @@
   <div class="{{ .Site.Params.cover_dimming_class }}">
       {{ partial "site-navigation.html" .}}
       <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-        <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
+        <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f1 f2-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
           {{ .Title | default .Site.Title }}
         </h1>
         {{ with .Params.description }}
-        <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+        <h2 class="fw1 f5 f3-l measure-wide-l center mt3">
           {{ . }}
         </h2>
         {{ end }}
@@ -26,11 +26,11 @@
     <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
     {{ partial "site-navigation.html" . }}
     <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-      <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
+      <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f1 f2-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
         {{ .Title | default .Site.Title }}
       </h1>
       {{ with .Params.description }}
-      <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+      <h2 class="fw1 f5 f3-l measure-wide-l center lh-copy mt3 mb4">
         {{ . }}
       </h2>
       {{ end }}
@@ -80,11 +80,11 @@
   <header class="cover bg-center main-grey-bg {{ if or $isDisease (not $containsDisease) }}menu-desktop-s{{ end }}" style="background-image: url('{{ $featured_image }}'); z-index: 1;">
     <div class="{{ .Site.Params.cover_dimming_class }}">
       <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-        <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
+        <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f1 f2-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
           {{ .Title | default .Site.Title }}
         </h1>
         {{ with .Params.description }}
-        <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+        <h2 class="fw1 f5 f3-l measure-wide-l center mt3">
           {{ . }}
         </h2>
         {{ end }}
@@ -95,11 +95,11 @@
   <header class="relative" style="z-index:1;">
     <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
     <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-      <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f-5 f1-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
+      <h1 class="header-title-font {{ if or $isDisease (not $containsDisease) }}f1 f2-ns{{ else }}f1 f2-ns{{ end }} dark-blue lh-title">
         {{ .Title | default .Site.Title }}
       </h1>
       {{ with .Params.description }}
-      <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+      <h2 class="fw1 f5 f3-l measure-wide-l center mt3">
         {{ . }}
       </h2>
       {{ end }}

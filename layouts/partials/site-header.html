@@ -8,11 +8,11 @@
     <div class="{{ .Site.Params.cover_dimming_class }}">
       {{ partial "site-navigation.html" .}}
       <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-        <h1 class="header-title-font f-5 f1-ns dark-blue lh-title">
+        <h1 class="header-title-font f1 f2-ns dark-blue lh-title mt5">
           {{ .Title | default .Site.Title }}
         </h1>
         {{ with .Params.description }}
-          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+          <h2 class="fw1 f3 f4-ns measure-wide-l center mt3">
             {{ . }}
           </h2>
         {{ end }}
@@ -24,11 +24,11 @@
     <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
       {{ partial "site-navigation.html" . }}
       <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-        <h1 class="header-title-font f-5 f1-ns dark-blue lh-title">
+        <h1 class="header-title-font f1 f2-ns dark-blue lh-title">
           {{ .Title | default .Site.Title }}
         </h1>
         {{ with .Params.description }}
-          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+          <h2 class="fw1 f5 f3-l measure-wide-l center lh-copy mt3 mb4">
             {{ . }}
           </h2>
         {{ end }}
@@ -61,7 +61,7 @@
         </a>
       </div>
       <div class="flex items-center">
-        {{ partial "i18nlist.html" . }}
+<!--        {{ partial "i18nlist.html" . }}-->
         <button class="mr2-ns v-mid" onclick="topFunction();toggleTopFunction()" >
           <svg class="v-mid" viewBox="0 0 16 16" aria-hidden="true" width="2em" height="2em">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -76,11 +76,11 @@
   <header class="cover bg-center relative main-grey-bg menu-desktop-s" style="background-image: url('{{ $featured_image }}');z-index:1;">
     <div class="{{ .Site.Params.cover_dimming_class }}">
     <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-      <h1 class="header-title-font f-5 f1-ns dark-blue lh-title">
+      <h1 class="header-title-font f1 f2-ns dark-blue lh-title">
         {{ .Title | default .Site.Title }}
       </h1>
       {{ with .Params.description }}
-      <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+      <h2 class="fw1 f5 f3-l measure-wide-l center mt3">
         {{ . }}
       </h2>
       {{ end }}
@@ -91,11 +91,11 @@
   <header class="relative" style="z-index:1;">
     <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
     <div class="tc p-banner-lg ph3 ph4-ns w-90 w-100-ns center">
-      <h1 class="header-title-font f-5 f1-ns dark-blue lh-title">
+      <h1 class="header-title-font f1 f2-ns dark-blue lh-title">
         {{ .Title | default .Site.Title }}
       </h1>
       {{ with .Params.description }}
-      <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
+      <h2 class="fw1 f5 f3-l measure-wide-l center mt3">
         {{ . }}
       </h2>
       {{ end }}
