@@ -39,6 +39,13 @@
                             <option class="" value="{{ . }}">{{ . }}</option>
                             {{ end }}
                         </select>
+                        {{ else if eq .Params.type "datetime-local" }}
+                        <input  class="form-input input-text-font {{ .Params.required }}"
+                                type="datetime-local"
+                                value="{{ now.Format "2006-01-02T15:04" }}"
+                                min="{{ now.Format "2006-01-02T15:04" }}"
+                                name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ if .Params.pattern }} pattern="{{ .Params.pattern }}" {{ end }}
+                                {{ if .Params.hidden }} style="display:none" {{ end }} {{ if .Params.required }} required {{ end }}>
                         {{ else }}
                         {{/* Default type - input */}}
                         <input class="form-input input-text-font {{ .Params.required }}" type="{{ .Params.input_type }}" placeholder="{{ .Params.placeholder }}"
@@ -57,4 +64,3 @@
         </div>
     </div>
 </article>
-
