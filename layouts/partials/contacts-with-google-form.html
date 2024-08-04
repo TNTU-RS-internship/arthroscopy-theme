@@ -22,7 +22,7 @@
                 {{ end }}
 
                 <script>let submitted=false;</script>
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='{{ .Params.response_page }}';}"></iframe>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='{{ .Site.Params.thankYou }}';}"></iframe>
                 <form action="{{ .Params.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true">
 
                     {{ range $form }}
