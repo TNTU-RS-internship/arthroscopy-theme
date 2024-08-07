@@ -1,5 +1,5 @@
 {{ with .Params }}
-<div class="section-image-container flex w-100 h-100 dark-blue">
+<div class="section-image-container image-right flex w-100 h-100 dark-blue">
   <div class="section-text-half pa5 pv5-6 pa4-ns ph1-ns">
     <div class="overflow-y-auto w-90 flex flex-column justify-between mw7 pa4 bg-white br-20 cus-shed">
       {{ if .title }}
@@ -14,7 +14,7 @@
 
   {{ if .section_image }}
   <div class="section-image-half" style="background-image: url('{{ .section_image }}');">
-    <div class="gradient-overlay-right"></div>
+    <div class="gradient-overlay-right gradient-overlay-bottom image-right"></div>
   </div>
   {{ end }}
 </div>

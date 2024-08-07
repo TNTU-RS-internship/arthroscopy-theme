@@ -1,14 +1,14 @@
 {{ with .Params }}
-<div class="section-image-container flex w-100 h-100 light-blue-bg dark-blue">
+<div class="section-image-container image-left flex w-100 h-100 light-blue-bg dark-blue">
   {{ if .section_image }}
   <div class="section-image-half" style="background-image: url('{{ .section_image }}');">
-    <div class="gradient-overlay-left"></div>
+    <div class="gradient-overlay-left gradient-overlay-bottom image-left"></div>
   </div>
   {{ end }}
 
   <div class="section-text-half pa5 pv5-6 pa4-ns ph1-ns">
     <div class="overflow-y-auto w-90 flex flex-column justify-between mw7 pa4 bg-white br-20 cus-shed">
-    {{ if .title }}
+      {{ if .title }}
       <h2 class="tc f2-l f3 fw8 mb3">{{ .title }}</h2>
       {{ end }}
       <p class="f4-5">{{ .text | markdownify }}</p>
@@ -51,16 +51,28 @@
     left: 0;
     pointer-events: none;
   }
-  .gradient-overlay-left {background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(193,220,247,0) 60%, rgba(193,220,247,1) 100%);}
-  .gradient-overlay-right {background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 100%);}
+  .gradient-overlay-left { background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(193,220,247,0) 60%, rgba(193,220,247,1) 100%); }
+  .gradient-overlay-right { background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 100%); }
 
   @media (max-width: 768px) {
-    .section-image-half{
-      display: none;
+    .section-image-container.image-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .section-image-container.image-right {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .section-image-half {
+      width: 100%;
+      display: block;
     }
     .section-text-half {
       width: 100%;
       height: auto;
+      padding-top: 3rem;
     }
+    .gradient-overlay-bottom.image-left{ background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(193,220,247,0) 85%, rgba(193,220,247,1) 100%); }
+    .gradient-overlay-bottom.image-right{ background: linear-gradient(360deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 100%); }
   }
 </style>
