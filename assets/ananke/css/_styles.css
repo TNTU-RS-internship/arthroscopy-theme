@@ -413,8 +413,19 @@ footer {
   color: black;
 }
 
+.privacy-page strong {
+  color: var(--dark-blue) !important;
+  font-weight: bold;
+}
+
+.privacy-page em a {
+  font-style: normal;
+  font-weight: normal;
+  color: red !important;
+}
+
 .privacy-color-link a {
-  color: black !important;
+  color: var(--dark-blue) !important;
   font-weight: bold;
 }
 
