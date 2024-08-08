@@ -72,6 +72,10 @@ textarea {
   color: var(--dark-blue);
 }
 
+.normal-blue {
+  color: var(--normal-blue);
+}
+
 .main-blue-bg {
   background-color: var(--main-blue);
 }
